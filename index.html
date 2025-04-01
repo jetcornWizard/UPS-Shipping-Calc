@@ -3,31 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shipping Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Shipping Cost Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator-container {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .calculator-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Shipping Cost Calculator</h1>
-    <form id="shipping-form">
-        <label for="amount">Dollar Amount:</label>
-        <input type="number" id="amount" name="amount" required>
-        
-        <label for="zipcode">Destination ZIP Code:</label>
-        <input type="text" id="zipcode" name="zipcode" required>
-        
-        <label for="shipping-type">Shipping Type:</label>
-        <select id="shipping-type" name="shipping-type" required>
-            <option value="Ground">Ground</option>
-            <option value="3 Day Select">3 Day Select</option>
-            <option value="2nd Day Air">2nd Day Air</option>
-            <option value="2nd Day Air A.M.">2nd Day Air A.M.</option>
-            <option value="Next Day Air Saver">Next Day Air Saver</option>
-            <option value="Next Day Air">Next Day Air</option>
-        </select>
-        
-        <button type="submit">Calculate Shipping Cost</button>
-    </form>
-    <div id="result"></div>
+    <div class="calculator-container">
+        <h1>Shipping Cost Calculator</h1>
+        <form id="shipping-form">
+            <div class="form-group">
+                <label for="amount">Order Amount ($):</label>
+                <input type="number" id="amount" placeholder="Enter order amount" required>
+            </div>
+            <div class="form-group">
+                <label for="zipcode">Zip Code:</label>
+                <input type="text" id="zipcode" placeholder="Enter zip code" required>
+            </div>
+            <div class="form-group">
+                <label for="shipping-type">Shipping Type:</label>
+                <select id="shipping-type" required>
+                    <option value="standard">Standard</option>
+                    <option value="express">Express</option>
+                </select>
+            </div>
+            <button type="submit" class="calculate-btn">Calculate Shipping</button>
+        </form>
+        <div class="result" id="result">Shipping Cost: $0.00</div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
