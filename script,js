@@ -1,0 +1,41 @@
+document.getElementById('shipping-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const amount = parseFloat(document.getElementById('amount').value);
+    const zipcode = document.getElementById('zipcode').value;
+    const shippingType = document.getElementById('shipping-type').value;
+
+    let shippingCost = calculateShippingCost(amount, zipcode, shippingType);
+    
+    document.getElementById('result').innerText = 'Shipping Cost: $' + shippingCost.toFixed(2);
+});
+
+const shippingRates = {
+    "standard": {
+        "zone1": 5,
+        "zone2": 7,
+        "zone3": 10
+    },
+    "express": {
+        "zone1": 10,
+        "zone2": 15,
+        "zone3": 20
+    }
+};
+
+function calculateShippingCost(amount, zipcode, shippingType) {
+    let zone = getZone(zipcode);
+    let baseCost = shippingRates[shippingType][zone];
+    let cost = baseCost + (amount * 0.05);
+    return cost;
+}
+
+function getZone(zipcode) {
+    if (zipcode.startsWith('9')) {
+        return 'zone3';
+    } else if (zipcode.startsWith('8')) {
+        return 'zone2';
+    } else {
+        return 'zone1';
+    }
+}

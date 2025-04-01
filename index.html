@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Shipping Cost Calculator</h1>
+    <form id="shipping-form">
+        <label for="amount">Dollar Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+        
+        <label for="zipcode">Destination ZIP Code:</label>
+        <input type="text" id="zipcode" name="zipcode" required>
+        
+        <label for="shipping-type">Shipping Type:</label>
+        <select id="shipping-type" name="shipping-type" required>
+            <option value="Ground">Ground</option>
+            <option value="3 Day Select">3 Day Select</option>
+            <option value="2nd Day Air">2nd Day Air</option>
+            <option value="2nd Day Air A.M.">2nd Day Air A.M.</option>
+            <option value="Next Day Air Saver">Next Day Air Saver</option>
+            <option value="Next Day Air">Next Day Air</option>
+        </select>
+        
+        <button type="submit">Calculate Shipping Cost</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>
